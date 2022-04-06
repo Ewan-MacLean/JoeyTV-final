@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import AgeRecommended from "../ageRecommendation/AgeRecommended";
-import Rating from "../starRating/Rating";
+import AgeRecommended from "./AgeRecommended";
+import Rating from "./Rating";
 
 function Form(props) {
   const [review, setReview] = useState("");

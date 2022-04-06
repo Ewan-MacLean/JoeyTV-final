@@ -5,12 +5,18 @@ import React, { useEffect, useState } from 'react';
 import MyNavbar from './components/myNavbar/navbar';
 import ShowList from './components/ShowList/showList';
 import PaginationNav from './components/PaginationNav/paginationNav';
+import Footer from './components/Footer/footer';
+import About from './components/About/About';
+import LoginForm from './components/LoginPage/LoginForm';
+import SignupForm from './components/LoginPage/SignupForm';
+import Form from './components/ReviewPage/Form';
+import Details from './components/Views/Detail';
 
 function App() {
   const [data,setData] = useState([]);
   const [loading,setLoading] = useState(false);
   const [currentPage,setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(5);
+  const [postsPerPage] = useState(25);
 
   useEffect(()=>{
     setLoading(true)
@@ -38,6 +44,12 @@ function App() {
         totalPosts={data.length} 
         paginate={paginate}
         />
+      <Footer/>
+      <About/>
+      <LoginForm/>
+      <SignupForm/>
+      <Form/>
+      <Details/>
       </Container>
     </div>
   );

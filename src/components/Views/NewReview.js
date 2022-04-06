@@ -2,7 +2,7 @@ import Form from "./components/reviewForm/Form";
 import ReviewList from "./components/ReviewList/ReviewList";
 import MovieDetails from "./components/movieDetails/MovieDetails";
 
-function newReview () {
+function NewReview () {
   return (
     <div className="App">
       <MovieDetails />
@@ -13,4 +13,4 @@ function newReview () {
 
 }
 
-export default newReview;
+export default NewReview;

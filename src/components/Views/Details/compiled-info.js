@@ -2,7 +2,7 @@
 // import ShowContext from '../Context/show-context';
 // import { useApi } from '../Context/show-context';
 import { Figure, ProgressBar, Button, Card } from 'react-bootstrap';
-import StarRating from '../../StarRating';
+import StarRating from './StarRating';
 
 const CompiledInfo = function (props) {
     // const data = require('./894.json')

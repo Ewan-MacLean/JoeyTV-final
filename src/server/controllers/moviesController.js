@@ -13,7 +13,7 @@ const getMovies = async (req, res) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   console.dir(req.params);
 
-  const movies = await Movies.find().limit(25);
+  const movies = await Movies.find();
   // console.log(movies);
   res.json(movies);
 };

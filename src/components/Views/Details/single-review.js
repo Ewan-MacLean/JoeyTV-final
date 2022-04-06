@@ -1,5 +1,5 @@
 import { Button, Card, ProgressBar } from 'react-bootstrap';
-import StarRating from '../../StarRating';
+import StarRating from './StarRating';
 
 const SingleReview = function (props) {
     // const reviews = require('./894reviews.json')
