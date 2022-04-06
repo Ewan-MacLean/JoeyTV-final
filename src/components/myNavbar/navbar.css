@@ -1,0 +1,14 @@
+.myNavBar {
+    width: 100vw;
+}
+
+.nav-links {
+    display: inline-block;
+    border-radius: 3px;
+    }
+
+.nav-links:hover {
+    background-color:rgba(0, 128, 0, 0.589); /*will change background-color of element on hover */
+    color: white; 
+    }
+

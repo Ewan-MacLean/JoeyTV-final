@@ -1,0 +1,21 @@
+{
+  "name": "projectjoey",
+  "version": "1.0.0",
+  "description": "",
+  "main": "db.js",
+  "scripts": {
+    "dev": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "ProjectJoey",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "mongoose": "^6.2.5",
+    "multer": "^1.4.4",
+    "nodemon": "^2.0.15",
+    "tvmaze-node": "^1.0.4"
+  }
+}
