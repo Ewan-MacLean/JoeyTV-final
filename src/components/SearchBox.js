@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import MovieDetails from "../MovieDetails/MovieDetails";
 
+// copy search component from here ***
 export const SearchBox = () => {
   const [data, setData] = useState([]);
   const [query, setQuery] = useState("");
@@ -34,6 +35,7 @@ export const SearchBox = () => {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
+        {/* to here**** */}
         <br />
         {columns &&
           columns.map((column) => (
