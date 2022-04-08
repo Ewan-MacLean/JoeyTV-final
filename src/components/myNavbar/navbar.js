@@ -1,5 +1,6 @@
 import { Navbar,Container,Nav,NavDropdown
         ,Form, FormControl, Button } from "react-bootstrap"
+import {LinkContainer} from 'react-router-bootstrap'
 import './navbar.css'
 
 function MyNavbar () {
@@ -16,7 +17,9 @@ function MyNavbar () {
                 navbarScroll
             >
                 <Nav.Link className='nav-links' href="#action1">Home</Nav.Link>
-                <Nav.Link className='nav-links' href="#action2">Write Review</Nav.Link>
+                {/* <LinkContainer to="/about">
+                   <Nav.Link className='nav-links' >About Us</Nav.Link>
+                </LinkContainer> */}
                 <Nav.Link className='nav-links' href="#action3">Saved</Nav.Link>
                 <NavDropdown title="My Account" id="navbarScrollingDropdown">
                 <NavDropdown.Item href="#action3">My Reviews</NavDropdown.Item>
