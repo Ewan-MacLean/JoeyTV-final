@@ -58,8 +58,8 @@ function MyNavbar({ query, setQuery }) {
               placeholder="Search"
               className="me-2"
               aria-label="Search"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
+              value={query.replace('.*',' ')}
+              onChange={(e) => setQuery(e.target.value.replace(' ','.*'))}
             />
             <Button variant="outline-success" type="submit">
               Search
