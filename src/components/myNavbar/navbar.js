@@ -1,13 +1,7 @@
-import {
-  Navbar,
-  Container,
-  Nav,
-  NavDropdown,
-  Form,
-  FormControl,
-  Button,
-} from "react-bootstrap";
-import "./navbar.css";
+import { Navbar,Container,Nav,NavDropdown
+        ,Form, FormControl, Button } from "react-bootstrap"
+import { Link } from "react-router-dom";
+import './navbar.css'
 
 function MyNavbar({ query, setQuery }) {
   const handleSubmit = (e) => {
