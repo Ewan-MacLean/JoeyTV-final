@@ -12,6 +12,9 @@ import SignupForm from "./components/LoginPage/SignupForm";
 import Form from "./components/ReviewPage/Form";
 import Details from "./components/Views/Detail";
 
+import { Routes, Route } from "react-router-dom";
+
+
 function App() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -51,20 +54,25 @@ function App() {
   return (
     <div className="App">
       <MyNavbar query={query} setQuery={setQuery} />
-      <Container>
-        <ShowList showData={currentPosts} loading={loading} />
-        <PaginationNav
-          postsPerPage={postsPerPage}
-          totalPosts={data.length}
-          paginate={paginate}
-        />
-        <About />
-        <LoginForm />
-        <SignupForm />
-        <Form />
-        <Details />
-        <Footer />
-      </Container>
+        <Routes>
+        <Route path="/" element={
+                  <Container>
+                  <ShowList showData={currentPosts} loading={loading} />
+                  <PaginationNav
+                    postsPerPage={postsPerPage}
+                    totalPosts={data.length}
+                    paginate={paginate}
+                  />                
+                </Container>
+          } />
+          <Route path="about" element={<About />} />
+          <Route path="login" element={<LoginForm />} />
+          {/* <Route path="signup" element={<Signupform />} /> */}
+          <Route path="form" element={<Form />} />
+          <Route path="details" element={<Details/>} />
+        </Routes>
+      <Footer />
+
     </div>
   );
 }

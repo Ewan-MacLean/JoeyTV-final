@@ -2,22 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import MyNavbar from './components/myNavbar/navbar';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import About from './components/About/About'
+import { BrowserRouter } from "react-router-dom";
 
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <Router> */}
-      <App />  
-      {/* <Switch> */}
-        {/* <Route exact path="/" component={App} /> */}
-        {/* <Route path="/service" component={Service} /> */}
-        {/* <Route path="/about" component={About} />       */}
-      {/* </Switch>    */}
-    {/* </Router> */}
+    <BrowserRouter>
+      <App/>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );

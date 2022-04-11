@@ -1,5 +1,6 @@
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
 
 const ShowCard = function(props){
     return(
@@ -12,7 +13,7 @@ const ShowCard = function(props){
                     <Card.Body>
                         <Card.Title>{props.name}</Card.Title>
                         <Card.Text>{props.summary}</Card.Text>
-                        <Button variant="primary">Details</Button>
+                        <Button as={Link} to="/details" variant="primary">Details</Button>
                     </Card.Body>
                 </div>
             </div>
