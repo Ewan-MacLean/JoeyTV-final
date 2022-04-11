@@ -15,14 +15,13 @@ import Sliders from "./components/Slider/Slider";
 
 import { Routes, Route } from "react-router-dom";
 
-
 function App() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(25);
   const [searchcolumns, setSearchColumns] = useState(["name"]);
-  const [query, setQuery] = useState(x=>'');
+  const [query, setQuery] = useState("");
 
   useEffect(() => {
     setLoading(true);
@@ -33,16 +32,13 @@ function App() {
   }, []);
 
   function search(rows) {
-    console.log('the query',query);
-    let regExp = new RegExp(query,'i')
-    console.dir(regExp);
     return rows.filter((row) =>
       searchcolumns.some(
         (column) =>
-          regExp.test(row[column].toString())
-            // .toString()
-            // .toLowerCase()
-            // .indexOf(query.toString().toLowerCase()) > -1
+          row[column]
+            .toString()
+            .toLowerCase()
+            .indexOf(query.toString().toLowerCase()) > -1
       )
     );
   }
@@ -56,37 +52,39 @@ function App() {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-      <Container>
-        <Row>
-          <Col>
-            <MyNavbar query={query} setQuery={setQuery} />
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <Sliders/>
-          </Col>
-        </Row>
-          <Routes>
-          <Route path="/" element={
-                    <div>
-                    <ShowList showData={currentPosts} loading={loading} />
-                    <PaginationNav
-                      postsPerPage={postsPerPage}
-                      totalPosts={data.length}
-                      paginate={paginate}
-                    />                
-                  </div>
-            } />
-            <Route path="about" element={<About />} />
-            <Route path="login" element={<LoginForm />} />
-            {/* <Route path="signup" element={<Signupform />} /> */}
-            <Route path="form" element={<Form />} />
-            <Route path="details" element={<Details/>} />
-          </Routes>
-        <Footer />
-      </Container>
-
+    <Container>
+      <Row>
+        <Col>
+          <MyNavbar query={query} setQuery={setQuery} />
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <Sliders />
+        </Col>
+      </Row>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <div>
+              <ShowList showData={currentPosts} loading={loading} />
+              <PaginationNav
+                postsPerPage={postsPerPage}
+                totalPosts={data.length}
+                paginate={paginate}
+              />
+            </div>
+          }
+        />
+        <Route path="about" element={<About />} />
+        <Route path="login" element={<LoginForm />} />
+        {/* <Route path="signup" element={<Signupform />} /> */}
+        <Route path="form" element={<Form />} />
+        <Route path="details" element={<Details />} />
+      </Routes>
+      <Footer />
+    </Container>
   );
 }
 

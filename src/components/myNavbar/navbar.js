@@ -1,19 +1,22 @@
-import { Navbar,Container,Nav,NavDropdown
-        ,Form, FormControl, Button } from "react-bootstrap"
+import {
+  Navbar,
+  Container,
+  Nav,
+  NavDropdown,
+  Form,
+  FormControl,
+  Button,
+} from "react-bootstrap";
 import { Link } from "react-router-dom";
-import './navbar.css'
+import "./navbar.css";
 
 function MyNavbar({ query, setQuery }) {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const form = e.currentTarget;
-    console.log(form.value);
-  };
-
   return (
-    <Navbar className="myNavbar" bg="light" expand="lg">
+    <Navbar className="myNavbar fixed-top" bg="light" expand="lg">
       <Container fluid>
-        <Navbar.Brand href="#">JoeyTV</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/">
+          JoeyTV
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -21,43 +24,39 @@ function MyNavbar({ query, setQuery }) {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <Nav.Link className="nav-links" href="#action1">
+            <Nav.Link as={Link} to="/" className="nav-links">
               Home
             </Nav.Link>
-            <Nav.Link className="nav-links" href="#action2">
-              Write Review
+            <Nav.Link as={Link} to="/about" className="nav-links">
+              About Us
             </Nav.Link>
-            <Nav.Link className="nav-links" href="#action3">
-              Saved
+            <Nav.Link as={Link} to="/form" className="nav-links">
+              Write a Review
+            </Nav.Link>
+            <Nav.Link as={Link} to="/login" className="nav-links">
+              Login
+            </Nav.Link>
+            <Nav.Link as={Link} to="/signup" className="nav-links">
+              Sign Up
             </Nav.Link>
             <NavDropdown title="My Account" id="navbarScrollingDropdown">
               <NavDropdown.Item href="#action3">My Reviews</NavDropdown.Item>
-              <NavDropdown.Item href="#action3">Saved</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">
-                Account Settings
-              </NavDropdown.Item>
+              <NavDropdown.Item href="#action3">wowee</NavDropdown.Item>
+              <NavDropdown.Item href="#action4">Login</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action5">Log Out</NavDropdown.Item>
             </NavDropdown>
           </Nav>
-          <Form
-            className="d-flex"
-            action="/profile"
-            method="Post"
-            encType="multipart/form-data"
-            onSubmit={handleSubmit}
-          >
+          <Form className="d-flex">
             <FormControl
               type="text"
               placeholder="Search"
               className="me-2"
               aria-label="Search"
-              value={query.replace('.*',' ')}
-              onChange={(e) => setQuery(e.target.value.replace(' ','.*'))}
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
             />
-            <Button variant="outline-success" type="submit">
-              Search
-            </Button>
+            {/* <Button variant="outline-success">Search</Button> */}
           </Form>
         </Navbar.Collapse>
       </Container>
