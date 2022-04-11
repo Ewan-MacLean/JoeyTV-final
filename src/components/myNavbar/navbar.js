@@ -3,7 +3,7 @@ import { Navbar,Container,Nav,NavDropdown
 import { Link } from "react-router-dom";
 import './navbar.css'
 
-function MyNavbar () {
+function MyNavbar ({query, setQuery}) {
     
     return(
         <Navbar className="myNavbar fixed-top" bg="light" expand="lg">
@@ -33,12 +33,14 @@ function MyNavbar () {
             </Nav>
             <Form className="d-flex">
                 <FormControl
-                type="search"
+                type="text"
                 placeholder="Search"
                 className="me-2"
                 aria-label="Search"
+                value={query}
+                onChange={(e)=>setQuery(e.target.value)}
                 />
-                <Button variant="outline-success">Search</Button>
+                {/* <Button variant="outline-success">Search</Button> */}
             </Form>
             </Navbar.Collapse>
         </Container>

@@ -1,6 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import { Container } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import React, { useEffect, useState } from "react";
 import MyNavbar from "./components/myNavbar/navbar";
 import ShowList from "./components/ShowList/showList";
@@ -11,6 +11,7 @@ import LoginForm from "./components/LoginPage/LoginForm";
 import SignupForm from "./components/LoginPage/SignupForm";
 import Form from "./components/ReviewPage/Form";
 import Details from "./components/Views/Detail";
+import Sliders from "./components/Slider/Slider";
 
 import { Routes, Route } from "react-router-dom";
 
@@ -52,28 +53,37 @@ function App() {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <div className="App">
-      <MyNavbar query={query} setQuery={setQuery} />
-        <Routes>
-        <Route path="/" element={
-                  <Container>
-                  <ShowList showData={currentPosts} loading={loading} />
-                  <PaginationNav
-                    postsPerPage={postsPerPage}
-                    totalPosts={data.length}
-                    paginate={paginate}
-                  />                
-                </Container>
-          } />
-          <Route path="about" element={<About />} />
-          <Route path="login" element={<LoginForm />} />
-          {/* <Route path="signup" element={<Signupform />} /> */}
-          <Route path="form" element={<Form />} />
-          <Route path="details" element={<Details/>} />
-        </Routes>
-      <Footer />
+      <Container>
+        <Row>
+          <Col>
+            <MyNavbar query={query} setQuery={setQuery} />
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Sliders/>
+          </Col>
+        </Row>
+          <Routes>
+          <Route path="/" element={
+                    <div>
+                    <ShowList showData={currentPosts} loading={loading} />
+                    <PaginationNav
+                      postsPerPage={postsPerPage}
+                      totalPosts={data.length}
+                      paginate={paginate}
+                    />                
+                  </div>
+            } />
+            <Route path="about" element={<About />} />
+            <Route path="login" element={<LoginForm />} />
+            {/* <Route path="signup" element={<Signupform />} /> */}
+            <Route path="form" element={<Form />} />
+            <Route path="details" element={<Details/>} />
+          </Routes>
+        <Footer />
+      </Container>
 
-    </div>
   );
 }
 
