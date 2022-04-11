@@ -22,7 +22,7 @@ function App() {
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(25);
   const [searchcolumns, setSearchColumns] = useState(["name"]);
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState(x=>'');
 
   useEffect(() => {
     setLoading(true);
@@ -33,13 +33,16 @@ function App() {
   }, []);
 
   function search(rows) {
+    console.log('the query',query);
+    let regExp = new RegExp(query,'i')
+    console.dir(regExp);
     return rows.filter((row) =>
       searchcolumns.some(
         (column) =>
-          row[column]
-            .toString()
-            .toLowerCase()
-            .indexOf(query.toString().toLowerCase()) > -1
+          regExp.test(row[column].toString())
+            // .toString()
+            // .toLowerCase()
+            // .indexOf(query.toString().toLowerCase()) > -1
       )
     );
   }
