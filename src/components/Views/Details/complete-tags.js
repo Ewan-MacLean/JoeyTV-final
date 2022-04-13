@@ -15,10 +15,21 @@ const CompleteTags = function (props) {
         
     }
 
+    let empty  = true;
+    let msg = "Be the first one to tag this show!"
+    if(countReviews==0) 
+    {
+        empty = true;
+    }
+    else
+{
+    empty = false;  
+}
 
     return (
         <Card>
-            <Card.Header as="h2">All tags</Card.Header>
+            <Card.Header as="h2">Show tags</Card.Header>
+            {empty? msg : ""}
             {items}
 
         </Card>

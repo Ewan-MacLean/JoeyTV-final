@@ -9,7 +9,7 @@ import Footer from "./components/Footer/footer";
 import About from "./components/About/About";
 import LoginForm from "./components/LoginPage/LoginForm";
 import SignupForm from "./components/LoginPage/SignupForm";
-import Form from "./components/ReviewPage/Form";
+import NewReview from "./components/Views/NewReview";
 import Details from "./components/Views/Detail";
 import Sliders from "./components/Slider/Slider";
 
@@ -58,16 +58,14 @@ function App() {
           <MyNavbar query={query} setQuery={setQuery} />
         </Col>
       </Row>
-      <Row>
-        <Col>
-          <Sliders />
-        </Col>
-      </Row>
       <Routes>
         <Route
           path="/"
           element={
             <div>
+                    <Row>
+        <Col><Sliders /></Col>
+      </Row>
               <ShowList showData={currentPosts} loading={loading} />
               <PaginationNav
                 postsPerPage={postsPerPage}
@@ -80,8 +78,10 @@ function App() {
         <Route path="about" element={<About />} />
         <Route path="login" element={<LoginForm />} />
         {/* <Route path="signup" element={<Signupform />} /> */}
-        <Route path="form" element={<Form />} />
-        <Route path="details" element={<Details />} />
+        <Route path="newReview/:showId" element={<NewReview />} />
+        {/* <Route path="form" element={<Form />} /> */}
+        <Route path="details/:showId" element={<Details />} />
+        {/* <Route path="details" element={<Details />} /> */}
       </Routes>
       <Footer />
     </Container>

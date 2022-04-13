@@ -2,7 +2,11 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 
+
 const ShowCard = function(props){
+    // console.log({props})
+
+
     return(
         <Card className='mb-3' style={{ width: '60rem' }}>
             <div className='row g-0'>
@@ -13,11 +17,15 @@ const ShowCard = function(props){
                     <Card.Body>
                         <Card.Title>{props.name}</Card.Title>
                         <Card.Text>{props.summary}</Card.Text>
-                        <Button as={Link} to="/details" variant="primary">Details</Button>
+                        <Card.Text>Rating {props.rating}</Card.Text>
+                        {/* <Link to={"/details/"+props.showId} > <button type="button">Testing</button></Link> */}
+                        <Button as={Link} to={"/details/"+props.showId} variant="primary">Details</Button>
                     </Card.Body>
                 </div>
             </div>
+            
         </Card>
+        
     );
 };
 

@@ -55,7 +55,7 @@ function Form(props) {
         />
         <p>Rating-{rating}</p>
         <label>
-          <h2>Your Commnent</h2>
+          <h2>Your Comment</h2>
           <textarea
             rows={4}
             cols={50}

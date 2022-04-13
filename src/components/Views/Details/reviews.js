@@ -3,11 +3,22 @@ import { Card } from 'react-bootstrap';
 
 const Reviews = function (props) {
     // const reviews = require('./894reviews.json')
-    const reviews = props.props[1]
+    const reviews = props.props[1];
+    let empty  = true;
+    let msg = "Be the first one to write a review!"
+    if(reviews.length==0) 
+    {
+        empty = true;
+    }
+    else
+{
+    empty = false;  
+}
 
     return (
         <Card>
-            <Card.Header as="h2">Complete Reviews</Card.Header>
+            <Card.Header as="h2">Complete reviews</Card.Header>
+            {empty? msg : ""}
             <SingleReview props={reviews} />
         </Card>
 
