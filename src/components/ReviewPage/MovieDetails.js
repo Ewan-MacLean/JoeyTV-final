@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-function MovieDetails(props) {
+export const MovieDetails = (props) => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -25,6 +25,4 @@ function MovieDetails(props) {
         ))}
     </div>
   );
-}
-
-export default MovieDetails;
+};

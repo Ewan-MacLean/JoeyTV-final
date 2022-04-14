@@ -9,9 +9,10 @@ import Footer from "./components/Footer/footer";
 import About from "./components/About/About";
 import LoginForm from "./components/LoginPage/LoginForm";
 import SignupForm from "./components/LoginPage/SignupForm";
-import Form from "./components/ReviewPage/Form";
+import { ReviewForm } from "./components/ReviewPage/ReviewForm";
 import Details from "./components/Views/Detail";
 import Sliders from "./components/Slider/Slider";
+import { CheckBox } from "./components/CheckBox/CheckBox";
 
 import { Routes, Route } from "react-router-dom";
 
@@ -51,6 +52,8 @@ function App() {
   // Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
+  const columns = data[0] && Object.keys(data[0]);
+
   return (
     <Container>
       <Row>
@@ -63,26 +66,37 @@ function App() {
           <Sliders />
         </Col>
       </Row>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <div>
-              <ShowList showData={currentPosts} loading={loading} />
-              <PaginationNav
-                postsPerPage={postsPerPage}
-                totalPosts={data.length}
-                paginate={paginate}
-              />
-            </div>
-          }
-        />
-        <Route path="about" element={<About />} />
-        <Route path="login" element={<LoginForm />} />
-        {/* <Route path="signup" element={<Signupform />} /> */}
-        <Route path="form" element={<Form />} />
-        <Route path="details" element={<Details />} />
-      </Routes>
+      <Row>
+        <Col md={11}>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <div>
+                  <ShowList showData={currentPosts} loading={loading} />
+                  <PaginationNav
+                    postsPerPage={postsPerPage}
+                    totalPosts={search(data).length}
+                    paginate={paginate}
+                  />
+                </div>
+              }
+            />
+            <Route path="about" element={<About />} />
+            <Route path="login" element={<LoginForm />} />
+            <Route path="signup" element={<SignupForm />} />
+            <Route path="form" element={<ReviewForm />} />
+            <Route path="details" element={<Details />} />
+          </Routes>
+        </Col>
+        <Col md={1}>
+          <CheckBox
+            columns={columns}
+            searchcolumns={searchcolumns}
+            setSearchColumns={setSearchColumns}
+          />
+        </Col>
+      </Row>
       <Footer />
     </Container>
   );

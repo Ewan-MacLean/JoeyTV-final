@@ -10,7 +10,7 @@ const ShowList = function({ showData, loading}){
                 showData.map(
                     x=>(
                         <div key={x.id}>
-                            <ShowCard name={x.name} rating={x.rating.average} image={x.image.medium} summary={x.summary}/> 
+                            <ShowCard name={x.name} id={x.id} rating={x.rating.average} image={x.image.medium} summary={x.summary}/> 
                         </div>
                     )
                 )

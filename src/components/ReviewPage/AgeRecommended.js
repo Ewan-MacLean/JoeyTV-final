@@ -1,6 +1,7 @@
 import React from "react";
+import Form from "react-bootstrap/Form";
 
-function AgeRecommended({ ages, setAges }) {
+export const AgeRecommended = ({ ages, setAges }) => {
   const handleCheckbox = (e) => {
     if (e.target.checked === true) {
       // setAges(ages.concat([e.target.name]));
@@ -13,89 +14,69 @@ function AgeRecommended({ ages, setAges }) {
   return (
     <div>
       <h2>Age Recommendation</h2>
-      <input
-        onChange={handleCheckbox}
+      <Form.Check
+        inline
+        label="2"
         type="checkbox"
-        className="checkbox"
-        id="age2"
-        name="2"
         value="2"
-      />
-      2
-      <input
         onChange={handleCheckbox}
+      />
+      <Form.Check
+        inline
+        label="3"
         type="checkbox"
-        className="checkbox"
-        id="age3"
-        name="3"
         value="3"
-      />
-      3
-      <input
         onChange={handleCheckbox}
+      />
+      <Form.Check
+        inline
+        label="4"
         type="checkbox"
-        className="checkbox"
-        id="age4"
-        name="4"
         value="4"
-      />
-      4
-      <input
         onChange={handleCheckbox}
+      />
+      <Form.Check
+        inline
+        label="5"
         type="checkbox"
-        className="checkbox"
-        id="age5"
-        name="5"
         value="5"
-      />
-      5
-      <input
         onChange={handleCheckbox}
+      />
+      <Form.Check
+        inline
+        label="6"
         type="checkbox"
-        className="checkbox"
-        id="age6"
-        name="6"
         value="6"
-      />
-      6
-      <input
         onChange={handleCheckbox}
+      />
+      <Form.Check
+        inline
+        label="7"
         type="checkbox"
-        className="checkbox"
-        id="age7"
-        name="7"
         value="7"
-      />
-      7
-      <input
         onChange={handleCheckbox}
+      />
+      <Form.Check
+        inline
+        label="8"
         type="checkbox"
-        className="checkbox"
-        id="age8"
-        name="8"
         value="8"
-      />
-      8
-      <input
         onChange={handleCheckbox}
+      />
+      <Form.Check
+        inline
+        label="9"
         type="checkbox"
-        className="checkbox"
-        id="age9"
-        name="9"
         value="9"
-      />
-      9
-      <input
         onChange={handleCheckbox}
-        type="checkbox"
-        className="checkbox"
-        id="age10"
-        name="10"
-        value="10"
       />
-      10
+      <Form.Check
+        inline
+        label="10"
+        type="checkbox"
+        value="10"
+        onChange={handleCheckbox}
+      />
     </div>
   );
-}
-
-export default AgeRecommended;
+};

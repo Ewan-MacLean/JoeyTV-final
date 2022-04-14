@@ -2,7 +2,7 @@ import React, { useMemo, useState } from "react";
 import PropTypes from "prop-types";
 import { FaStar } from "react-icons/fa";
 
-function Rating({ count, rating, color, onRating, getColor }) {
+export const Rating = ({ count, rating, color, onRating, getColor }) => {
   const [hoverRating, setHoverRating] = useState(0);
 
   const starRating = useMemo(() => {
@@ -31,13 +31,8 @@ function Rating({ count, rating, color, onRating, getColor }) {
       ));
   }, [color.filled, color.unfilled, count, hoverRating, onRating, rating]);
 
-  return (
-    <div>
-      <h2>Your Rating</h2>
-      {starRating}
-    </div>
-  );
-}
+  return <div>{starRating}</div>;
+};
 
 Rating.defaultProps = {
   count: 5,
@@ -49,13 +44,3 @@ Rating.defaultProps = {
 };
 
 export default Rating;
-
-// Rating.propTypes = {
-//   count: PropTypes.number,
-//   rating: PropTypes.number,
-//   onchange: PropTypes.func,
-//   color: {
-//     filled: PropTypes.string,
-//     unfilled: PropTypes.string,
-//   },
-// };

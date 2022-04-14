@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Card from "react-bootstrap/Card";
 
 const ReviewList = (props) => {
   const [usercomments, setUsercomments] = useState([]);
@@ -12,18 +13,18 @@ const ReviewList = (props) => {
   }, []);
 
   return (
-    <div>
-      <h3>Reviews from Other Users</h3>
+    <Card>
+      <h2 style={{ margin: 10 }}>User Reviews</h2>
       {usercomments.map((usercomment) => (
-        <div key={usercomment._id}>
-          <h4>{usercomment.review}</h4>
-          <h5>
+        <Card.Body key={usercomment._id}>
+          <Card.Header>{usercomment.review}</Card.Header>
+          <Card.Footer>
             Age recommendation: {usercomment.ages.toString()} || Rating-
             {usercomment.rating}
-          </h5>
-        </div>
+          </Card.Footer>
+        </Card.Body>
       ))}
-    </div>
+    </Card>
   );
 };
 
