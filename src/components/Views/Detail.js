@@ -4,15 +4,16 @@ import Reviews from './Details/reviews';
 import CompleteTags from './Details/complete-tags';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import BasicInfo from './Details/basic-info';
 
 function Detail() {
 
   let { showId } = useParams();
 
-  console.log({ showId });
   const [publicData, setPublicData] = useState([]);
   const [rawReviews, setRawReviews] = useState([]);
   const [computedData, setComputedData] = useState({});
+  const [eps, setEps] = useState({});
 
   const summarizeComments = (allComments) => {
     let filteredComments = allComments.filter(comment => (comment.showId == showId))
@@ -90,7 +91,13 @@ function Detail() {
         return response.json();
       })
       .then((moviesData) => {
-        setPublicData(moviesData.filter(movie => (movie.id == showId)));
+        let oneMovie = moviesData.filter(movie => (movie.id == showId))
+        setPublicData(oneMovie);
+        fetch(oneMovie[0]._links.previousepisode.href)
+        .then((response) => response.json())
+        .then((eps) => {
+          setEps(eps)
+        })
       })
 
     fetch("http://localhost:8888/userComments")
@@ -109,6 +116,7 @@ function Detail() {
 
     <div>
       <CompiledInfo props={[publicData, rawReviews, computedData]} />
+      <BasicInfo props={[publicData, rawReviews, computedData, eps]}/>
       <Reviews props={[publicData, rawReviews, computedData]} />
       <CompleteTags props={[publicData, rawReviews, computedData]} />
     </div>

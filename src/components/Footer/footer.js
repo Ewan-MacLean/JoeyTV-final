@@ -6,11 +6,11 @@ import './footer.css';
 const Footer = function(props)
 {
     return(
-        <footer class ="footer"> 
+        <footer className ="footer"> 
             
-            <div class="ct-footer-post">
-          <div class="container">
-             <div class="inner-left">
+            <div className="ct-footer-post">
+          <div className="container">
+             <div className="inner-left">
                 <ul>
                    <li>
                       <a href="">FAQ</a>
