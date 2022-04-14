@@ -3,18 +3,7 @@ import "./Slider.css";
 import Carousel from "react-bootstrap/Carousel";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-// let slideImage  = [
-//     'https://static.tvmaze.com/uploads/images/medium_portrait/1/4898.jpg',
-//     'https://static.tvmaze.com/uploads/images/medium_portrait/2/6242.jpg',
-//     'https://static.tvmaze.com/uploads/images/medium_portrait/401/1002503.jpg',
-//     'https://static.tvmaze.com/uploads/images/medium_portrait/402/1007439.jpg',
-//     'https://static.tvmaze.com/uploads/images/medium_portrait/305/764844.jpg',
-//     'https://static.tvmaze.com/uploads/images/medium_portrait/3/9460.jpg',
-//     'https://static.tvmaze.com/uploads/images/medium_portrait/12/31612.jpg',
-//     'https://static.tvmaze.com/uploads/images/medium_portrait/5/14778.jpg'
-//     ];
-
-function Sliders() {
+function Slider() {
   return (
     <>
       <div id="slider" className="mb-2">
@@ -41,11 +30,6 @@ function Sliders() {
               src="https://variety.com/wp-content/uploads/2021/02/pjimage-7-3.jpg"
               alt="Third slide"
             />
-
-            {/* <Carousel.Caption>
-      <h3>Third slide label</h3>
-      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-    </Carousel.Caption> */}
           </Carousel.Item>
 
           <Carousel.Item>
@@ -61,4 +45,4 @@ function Sliders() {
   );
 }
 
-export default Sliders;
+export default Slider;

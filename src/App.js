@@ -11,8 +11,6 @@ import LoginForm from "./components/LoginPage/LoginForm";
 import SignupForm from "./components/LoginPage/SignupForm";
 import { ReviewForm } from "./components/ReviewPage/ReviewForm";
 import Details from "./components/Views/Detail";
-import Sliders from "./components/Slider/Slider";
-import { CheckBox } from "./components/CheckBox/CheckBox";
 
 import { Routes, Route } from "react-router-dom";
 
@@ -32,8 +30,8 @@ function App() {
       .then(setLoading(false));
   }, []);
 
-  function search(rows) {
-    return rows.filter((row) =>
+  function search(data) {
+    return data.filter((row) =>
       searchcolumns.some(
         (column) =>
           row[column]
@@ -47,7 +45,7 @@ function App() {
   // Get current posts
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = search(data).slice(indexOfFirstPost, indexOfLastPost);
+  let currentPosts = search(data).slice(indexOfFirstPost, indexOfLastPost);
 
   // Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
@@ -63,17 +61,18 @@ function App() {
       </Row>
       <Row>
         <Col>
-          <Sliders />
-        </Col>
-      </Row>
-      <Row>
-        <Col md={11}>
           <Routes>
             <Route
               path="/"
               element={
                 <div>
-                  <ShowList showData={currentPosts} loading={loading} />
+                  <ShowList
+                    showData={currentPosts}
+                    loading={loading}
+                    columns={columns}
+                    searchcolumns={searchcolumns}
+                    setSearchColumns={setSearchColumns}
+                  />
                   <PaginationNav
                     postsPerPage={postsPerPage}
                     totalPosts={search(data).length}
@@ -88,13 +87,6 @@ function App() {
             <Route path="form" element={<ReviewForm />} />
             <Route path="details" element={<Details />} />
           </Routes>
-        </Col>
-        <Col md={1}>
-          <CheckBox
-            columns={columns}
-            searchcolumns={searchcolumns}
-            setSearchColumns={setSearchColumns}
-          />
         </Col>
       </Row>
       <Footer />

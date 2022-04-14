@@ -1,5 +1,4 @@
 import React, { useMemo, useState } from "react";
-import PropTypes from "prop-types";
 import { FaStar } from "react-icons/fa";
 
 export const Rating = ({ count, rating, color, onRating, getColor }) => {

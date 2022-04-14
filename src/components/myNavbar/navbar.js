@@ -56,7 +56,6 @@ function MyNavbar({ query, setQuery }) {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
             />
-            {/* <Button variant="outline-success">Search</Button> */}
           </Form>
         </Navbar.Collapse>
       </Container>

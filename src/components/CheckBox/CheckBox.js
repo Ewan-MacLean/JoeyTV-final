@@ -4,7 +4,7 @@ import "./CheckBox.css";
 export const CheckBox = ({ columns, searchcolumns, setSearchColumns }) => {
   return (
     <div>
-      <p className="contcheck">Properties</p>
+      <p className="contcheck">Search Properties</p>
       {columns &&
         columns.map((column) => (
           <label className="contcheck" key={column}>

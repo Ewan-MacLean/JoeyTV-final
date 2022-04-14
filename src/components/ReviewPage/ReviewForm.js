@@ -6,6 +6,7 @@ import Form from "react-bootstrap/Form";
 import { Col, Row } from "react-bootstrap";
 import { MovieDetails } from "./MovieDetails";
 import ReviewList from "./ReviewList";
+import { Tags } from "../Tags/Tags";
 
 export const ReviewForm = (props) => {
   const [review, setReview] = useState("");
@@ -14,6 +15,7 @@ export const ReviewForm = (props) => {
   const [userId, setUserId] = useState("");
   const [rating, setRating] = useState(0);
   const [ages, setAges] = useState([]);
+  const [tags, setTags] = useState([]);
   // const [checked, setChecked] = useState(false);
 
   const handleSubmit = (e) => {
@@ -32,6 +34,7 @@ export const ReviewForm = (props) => {
       review: review,
       rating: rating,
       ages: ages,
+      tags: tags,
     };
 
     fetch("http://localhost:8888/usercomments", {
@@ -84,18 +87,21 @@ export const ReviewForm = (props) => {
           <Form.Control
             as="textarea"
             rows={4}
-            // cols={50}
+            defaultValue="Enter Your Comments here"
             value={review}
             onChange={(e) => setReview(e.target.value)}
           />
         </Form.Group>
+        <Tags tags={tags} setTags={setTags} />
         <Button type="submit">Submit Review</Button>
         <Button
           style={{ margin: 10 }}
           type="reset"
-          onClick={() => setReview("") || setRating("") || setAges([])}
+          onClick={() =>
+            setReview("") || setRating("") || setAges([]) || setTags([])
+          }
         >
-          Clear Review
+          Form Reset
         </Button>
       </Form>
       <ReviewList />

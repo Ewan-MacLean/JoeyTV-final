@@ -5,6 +5,7 @@ const multer = require("multer");
 const upload = multer();
 require("dotenv").config();
 const mongoose = require("mongoose");
+const tagsRoutes = require("./routes/tagsRoutes");
 const moviesRoutes = require("./routes/moviesRoutes");
 const userCommentsRoutes = require("./routes/userCommentsRoutes");
 const userDataRoutes = require("./routes/userDataRoutes");
@@ -20,6 +21,8 @@ app.use("/movies", moviesRoutes);
 app.use("/userComments", userCommentsRoutes);
 
 app.use("/userData", userDataRoutes);
+
+app.use("/tags", tagsRoutes);
 
 const PORT = 8888;
 
