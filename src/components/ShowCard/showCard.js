@@ -11,7 +11,7 @@ const ShowCard = function(props){
         <Card className='mb-3' style={{ width: '60rem' }}>
             <div className='row g-0'>
                 <div className='col-md-4'>
-                    <Card.Img variant="top" src={props.image} />
+                    <Card.Img variant="top" src={props.image} style={{width: '15em'}}/>
                 </div>
                 <div className='col-md-8'>
                     <Card.Body>
