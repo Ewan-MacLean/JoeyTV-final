@@ -11,6 +11,7 @@ import LoginForm from "./components/LoginPage/LoginForm";
 import SignupForm from "./components/LoginPage/SignupForm";
 import NewReview from "./components/Views/NewReview";
 import Details from "./components/Views/Detail";
+import { ReviewForm } from "./components/ReviewPage/ReviewForm";
 
 import { Routes, Route } from "react-router-dom";
 
@@ -59,45 +60,21 @@ function App() {
           <MyNavbar query={query} setQuery={setQuery} />
         </Col>
       </Row>
-      <Row>
-        <Col>
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <div>
-                  <ShowList
-                    showData={currentPosts}
-                    loading={loading}
-                    columns={columns}
-                    searchcolumns={searchcolumns}
-                    setSearchColumns={setSearchColumns}
-                  />
-                  <PaginationNav
-                    postsPerPage={postsPerPage}
-                    totalPosts={search(data).length}
-                    paginate={paginate}
-                  />
-                </div>
-              }
-            />
-            <Route path="about" element={<About />} />
-            <Route path="login" element={<LoginForm />} />
-            <Route path="signup" element={<SignupForm />} />
-            <Route path="form" element={<NewReview />} />
-            <Route path="details" element={<Details />} />
-          </Routes>
-        </Col>
-      </Row>
       <Routes>
         <Route
           path="/"
           element={
             <div>
-              <ShowList showData={currentPosts} loading={loading} />
+              <ShowList
+                showData={currentPosts}
+                loading={loading}
+                columns={columns}
+                searchcolumns={searchcolumns}
+                setSearchColumns={setSearchColumns}
+              />
               <PaginationNav
                 postsPerPage={postsPerPage}
-                totalPosts={data.length}
+                totalPosts={search(data).length}
                 paginate={paginate}
               />
             </div>
@@ -107,7 +84,7 @@ function App() {
         <Route path="login" element={<LoginForm />} />
         {/* <Route path="signup" element={<Signupform />} /> */}
         <Route path="newReview/:showId" element={<NewReview />} />
-        {/* <Route path="form" element={<Form />} /> */}
+        <Route path="form" element={<ReviewForm />} />
         <Route path="details/:showId" element={<Details />} />
         {/* <Route path="details" element={<Details />} /> */}
       </Routes>

@@ -18,7 +18,7 @@ const ReviewList = (props) => {
       {usercomments.map((usercomment) => (
         <Card.Body key={usercomment._id}>
           <Card.Header>{usercomment.review}</Card.Header>
-          <Card.Footer>
+          <Card.Footer style={{ fontStyle: "italic" }}>
             Age recommendation: {usercomment.ages.toString()} || Rating:
             {usercomment.rating} || Tags: {usercomment.tags.toString()}
           </Card.Footer>

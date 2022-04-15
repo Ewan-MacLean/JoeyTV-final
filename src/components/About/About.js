@@ -28,7 +28,7 @@ function About() {
         <div class="team">
           <Container>
             <Row>
-              <Card style={{ width: "89%" }} className="text-center">
+              <Card style={{ width: "87%" }} className="text-center">
                 <Card.Img variant="top" src={team} />
                 <Card.Body>
                   <Card.Title>
