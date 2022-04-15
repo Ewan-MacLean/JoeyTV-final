@@ -25,8 +25,6 @@ const StarRating = (props) => {
   return (
     <span>
       {starSet}
-      <>  </>
-      {props.score}
     </span>
   )
 }

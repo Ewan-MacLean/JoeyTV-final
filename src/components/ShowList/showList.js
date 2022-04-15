@@ -24,17 +24,19 @@ const ShowList = function ({
       </Row>
       <Row>
         <Col>
-          {showData.map((x) => (
-            <div key={x.id}>
-              <ShowCard
-                name={x.name}
-                id={x.id}
-                rating={x.rating.average}
-                image={x.image.medium}
-                summary={x.summary}
-              />
-            </div>
-          ))}
+          {showData
+            .sort((a, b) => (a.rating.average < b.rating.average ? 1 : -1)) //TBD Fix the null cases
+            .map((x) => (
+              <div key={x.id}>
+                <ShowCard
+                  name={x.name}
+                  id={x.id}
+                  rating={x.rating.average}
+                  image={x.image.medium}
+                  summary={x.summary}
+                />
+              </div>
+            ))}
         </Col>
         <Col>
           <CheckBox

@@ -9,7 +9,7 @@ import Footer from "./components/Footer/footer";
 import About from "./components/About/About";
 import LoginForm from "./components/LoginPage/LoginForm";
 import SignupForm from "./components/LoginPage/SignupForm";
-import { ReviewForm } from "./components/ReviewPage/ReviewForm";
+import NewReview from "./components/Views/NewReview";
 import Details from "./components/Views/Detail";
 
 import { Routes, Route } from "react-router-dom";
@@ -18,7 +18,7 @@ function App() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(25);
+  const [postsPerPage] = useState(15);
   const [searchcolumns, setSearchColumns] = useState(["name"]);
   const [query, setQuery] = useState("");
 
@@ -84,11 +84,33 @@ function App() {
             <Route path="about" element={<About />} />
             <Route path="login" element={<LoginForm />} />
             <Route path="signup" element={<SignupForm />} />
-            <Route path="form" element={<ReviewForm />} />
+            <Route path="form" element={<NewReview />} />
             <Route path="details" element={<Details />} />
           </Routes>
         </Col>
       </Row>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <div>
+              <ShowList showData={currentPosts} loading={loading} />
+              <PaginationNav
+                postsPerPage={postsPerPage}
+                totalPosts={data.length}
+                paginate={paginate}
+              />
+            </div>
+          }
+        />
+        <Route path="about" element={<About />} />
+        <Route path="login" element={<LoginForm />} />
+        {/* <Route path="signup" element={<Signupform />} /> */}
+        <Route path="newReview/:showId" element={<NewReview />} />
+        {/* <Route path="form" element={<Form />} /> */}
+        <Route path="details/:showId" element={<Details />} />
+        {/* <Route path="details" element={<Details />} /> */}
+      </Routes>
       <Footer />
     </Container>
   );
