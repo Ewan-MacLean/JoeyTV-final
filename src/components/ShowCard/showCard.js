@@ -20,7 +20,7 @@ const ShowCard = function (props) {
               <Card.Title>Content ID: {props.id}</Card.Title>
               <Card.Text>{props.summary}</Card.Text>
               <Rating rating={props.rating} count={10} />
-              <Card.Text>Movie Rating {props.rating}</Card.Text>
+              <Card.Text>Movie Rating: {props.rating}</Card.Text>
               <Button
                 as={Link}
                 to={"/details/" + props.showId}

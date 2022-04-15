@@ -4,15 +4,14 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import "./About.css";
 
-const image1 = window.location.origin + "/assets/Claudia1.jpg";
-const image2 = window.location.origin + "/assets/Steve1.jpg";
-const image3 = window.location.origin + "/assets/Matt1.jpg";
-const image4 = window.location.origin + "/assets/Ewan1.jpg";
-const image5 = window.location.origin + "/assets/Kathrine1.jpg";
-const image6 = window.location.origin + "/assets/Marvel1.jpg";
-const team = window.location.origin + "/assets/team.jpg";
-
 function About() {
+  const image1 = window.location.origin + "/assets/Claudia1.jpg";
+  const image2 = window.location.origin + "/assets/Steve1.jpg";
+  const image3 = window.location.origin + "/assets/Matt1.jpg";
+  const image4 = window.location.origin + "/assets/Ewan1.jpg";
+  const image5 = window.location.origin + "/assets/Kathrine1.jpg";
+  const image6 = window.location.origin + "/assets/Marvel1.jpg";
+  const team = window.location.origin + "/assets/team.jpg";
   return (
     <div class="about-section">
       <div class="inner-container">
@@ -23,7 +22,6 @@ function About() {
             the safe entertainment of their children...
           </h2>
         </p>
-        {/* <h2 style="text-align:center">Our Team</h2> */}
         <h1>Our Team</h1>
         <div class="team">
           <Container>
