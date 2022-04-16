@@ -26,6 +26,7 @@ export const Rating = ({ count, rating, color, onRating, getColor }) => {
           style={{ color: getColor(index) }}
           onMouseEnter={() => setHoverRating(index)}
           onMouseLeave={() => setHoverRating(0)}
+          required="Required"
         />
       ));
   }, [color.filled, color.unfilled, count, hoverRating, onRating, rating]);

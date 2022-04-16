@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { Card } from "react-bootstrap";
+import { useParams } from "react-router-dom";
 
 export const MovieDetails = (props) => {
+  let { showId } = useParams();
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -12,17 +15,24 @@ export const MovieDetails = (props) => {
   }, []);
 
   return (
-    <div>
+    <Card className="text-center">
       {data
-        .filter((datum) => datum.id == "22651") //the movieId 22651 has to be handed down by props from the parent page
+        .filter((datum) => datum.id == showId)
         .map((datum) => (
           <div key={datum._id}>
-            <h1>{datum.name}</h1>
-            <h2>Joey Rating: {datum.weight}</h2>
-            <img src={datum.image.medium} alt={datum.name} />
-            <p>{datum.summary} </p>
+            <Card.Title>
+              <h2>{datum.name}</h2>
+            </Card.Title>
+            <Card.Img
+              style={{ width: "18rem" }}
+              src={datum.image.medium}
+              alt={datum.name}
+            />
+            <Card.Body>
+              <Card.Text>{datum.summary}</Card.Text>
+            </Card.Body>
           </div>
         ))}
-    </div>
+    </Card>
   );
 };

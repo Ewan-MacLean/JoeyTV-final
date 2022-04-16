@@ -11,11 +11,12 @@ import { Link } from "react-router-dom";
 import "./navbar.css";
 
 function MyNavbar({ query, setQuery }) {
+  const logo = window.location.origin + "/assets/joeytvlogo2.png";
   return (
     <Navbar className="myNavbar fixed-top" bg="light" expand="lg">
       <Container fluid>
         <Navbar.Brand as={Link} to="/">
-          JoeyTV
+          <img src={logo} alt="joeytvlogo" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
@@ -30,9 +31,9 @@ function MyNavbar({ query, setQuery }) {
             <Nav.Link as={Link} to="/about" className="nav-links">
               About Us
             </Nav.Link>
-            <Nav.Link as={Link} to="/form" className="nav-links">
+            {/* <Nav.Link as={Link} to="/form" className="nav-links">
               Write a Review
-            </Nav.Link>
+            </Nav.Link> */}
             <Nav.Link as={Link} to="/login" className="nav-links">
               Login
             </Nav.Link>
@@ -41,7 +42,7 @@ function MyNavbar({ query, setQuery }) {
             </Nav.Link>
             <NavDropdown title="My Account" id="navbarScrollingDropdown">
               <NavDropdown.Item href="#action3">My Reviews</NavDropdown.Item>
-              <NavDropdown.Item href="#action3">wowee</NavDropdown.Item>
+              {/* <NavDropdown.Item href="#action3">wowee</NavDropdown.Item> */}
               <NavDropdown.Item href="#action4">Login</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action5">Log Out</NavDropdown.Item>

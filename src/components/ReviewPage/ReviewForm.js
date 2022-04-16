@@ -1,22 +1,18 @@
 import React, { useState } from "react";
 import { AgeRecommended } from "./AgeRecommended";
 import Rating from "./Rating";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-import { Col, Row } from "react-bootstrap";
+import { Form, Button, Card, Col, Row } from "react-bootstrap";
 import { MovieDetails } from "./MovieDetails";
 import ReviewList from "./ReviewList";
 import { Tags } from "../Tags/Tags";
+import { useParams } from "react-router-dom";
 
 export const ReviewForm = (props) => {
+  let { showId } = useParams();
   const [review, setReview] = useState("");
-  const [showId, setShowId] = useState("");
-  const [movieTitle, setMovieTitle] = useState("");
-  const [userId, setUserId] = useState("");
   const [rating, setRating] = useState(0);
   const [ages, setAges] = useState([]);
   const [tags, setTags] = useState([]);
-  // const [checked, setChecked] = useState(false);
 
   const handleSubmit = (e) => {
     //reset for data
@@ -29,8 +25,7 @@ export const ReviewForm = (props) => {
     //Json formatted data to be posted to server
     const userComments = {
       showId: showId,
-      userId: userId,
-      movieTitle: movieTitle,
+      // userId: userId,
       review: review,
       rating: rating,
       ages: ages,
@@ -49,8 +44,8 @@ export const ReviewForm = (props) => {
   };
 
   return (
-    <div>
-      <MovieDetails />
+    <Card className="text-center">
+      <MovieDetails showId={showId} />
       <Form
         action="/profile"
         method="Post"
@@ -87,9 +82,9 @@ export const ReviewForm = (props) => {
           <Form.Control
             as="textarea"
             rows={4}
-            defaultValue="Enter Your Comments here"
             value={review}
             onChange={(e) => setReview(e.target.value)}
+            required
           />
         </Form.Group>
         <Tags tags={tags} setTags={setTags} />
@@ -105,6 +100,6 @@ export const ReviewForm = (props) => {
         </Button>
       </Form>
       <ReviewList />
-    </div>
+    </Card>
   );
 };

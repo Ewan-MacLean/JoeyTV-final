@@ -7,10 +7,11 @@
 
 body {
   min-height: 100vh;
-  /* display: flex;
-    align-items: center;
-    justify-content: center; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #f1f1f1;
+  padding-top: 65px;
 }
 
 .about-section {

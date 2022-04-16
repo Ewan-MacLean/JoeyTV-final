@@ -11,7 +11,6 @@ export const Tags = ({ tags, setTags }) => {
         return response.json();
       })
       .then((data) => {
-        console.log(data);
         setData(data);
       });
   }, []);
