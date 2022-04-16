@@ -16,11 +16,15 @@ const ShowCard = function (props) {
         <div className="col-md-8">
           <Card.Body>
             <Card.Header>
-              <Card.Title>{props.name}</Card.Title>
+              <Card.Title>
+                <b>{props.name}</b>
+              </Card.Title>
               <Card.Title>Content ID: {props.id}</Card.Title>
-              <Card.Text>{props.summary}</Card.Text>
               <Rating rating={props.rating} count={10} />
-              <Card.Text>Movie Rating: {props.rating}</Card.Text>
+              <Card.Text>
+                <b>Movie Rating: {props.rating}</b>
+              </Card.Text>
+              <Card.Text>{props.summary}</Card.Text>
               <Button
                 as={Link}
                 to={"/details/" + props.showId}
