@@ -60,7 +60,7 @@ const database = [{
         return(
             <Container>
                 <h1>Log In</h1>
-                <Form className="login" onSubmit={this.handleSubmit.bind(this)}>
+                <Form className="login mb-4" onSubmit={this.handleSubmit.bind(this)}>
                     <Form.Group className="mb-3" controlId="uname">
                         <Form.Label>Username</Form.Label>
                         <Form.Control onChange={this.onChangeUser.bind(this)} type="text" placeholder="Enter Username" />
@@ -73,7 +73,7 @@ const database = [{
                         Log In
                     </Button>
                 </Form>
-                <br/>
+                {/* <br/> */}
             </Container>
         );
     }

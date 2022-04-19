@@ -60,34 +60,40 @@ function App() {
           <MyNavbar query={query} setQuery={setQuery} />
         </Col>
       </Row>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <div>
-              <ShowList
-                showData={currentPosts}
-                loading={loading}
-                columns={columns}
-                searchcolumns={searchcolumns}
-                setSearchColumns={setSearchColumns}
-              />
-              <PaginationNav
-                postsPerPage={postsPerPage}
-                totalPosts={search(data).length}
-                paginate={paginate}
-              />
-            </div>
-          }
-        />
-        <Route path="about" element={<About />} />
-        <Route path="login" element={<LoginForm />} />
-        <Route path="signup" element={<SignupForm />} />
-        <Route path="newReview/:showId" element={<NewReview />} />
-        <Route path="form" element={<ReviewForm />} />
-        <Route path="details/:showId" element={<Details />} />
-      </Routes>
-      <Footer />
+      <Row>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <div>
+                <ShowList
+                  showData={currentPosts}
+                  loading={loading}
+                  columns={columns}
+                  searchcolumns={searchcolumns}
+                  setSearchColumns={setSearchColumns}
+                />
+                <PaginationNav
+                  postsPerPage={postsPerPage}
+                  totalPosts={search(data).length}
+                  paginate={paginate}
+                />
+              </div>
+            }
+          />
+          <Route path="about" element={<About />} />
+          <Route path="login" element={<LoginForm />} />
+          <Route path="signup" element={<SignupForm />} />
+          <Route path="newReview/:showId" element={<NewReview />} />
+          <Route path="form" element={<ReviewForm />} />
+          <Route path="details/:showId" element={<Details />} />
+        </Routes>
+      </Row>
+      <Row>
+        <Col>
+          <Footer />
+        </Col>
+      </Row>
     </Container>
   );
 }
