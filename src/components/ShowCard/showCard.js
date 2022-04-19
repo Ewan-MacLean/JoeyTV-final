@@ -22,7 +22,7 @@ const ShowCard = function (props) {
               <Card.Title>Content ID: {props.id}</Card.Title>
               <Rating rating={props.rating} count={10} />
               <Card.Text>
-                <b>Movie Rating: {props.rating}</b>
+                <b>JoeyTV Rating: {props.rating}</b>
               </Card.Text>
               <Card.Text>{props.summary}</Card.Text>
               <Button as={Link} to={"/details/" + props.id} variant="primary">

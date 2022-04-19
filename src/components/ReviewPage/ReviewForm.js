@@ -44,7 +44,7 @@ export const ReviewForm = (props) => {
   };
 
   return (
-    <Card className="text-center">
+    <Card className="text-center mt-3">
       <MovieDetails showId={showId} />
       <Form
         action="/profile"

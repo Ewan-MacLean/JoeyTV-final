@@ -15,7 +15,7 @@ export const MovieDetails = (props) => {
   }, []);
 
   return (
-    <Card className="text-center">
+    <Card className="text-center mt-3">
       {data
         .filter((datum) => datum.id == showId)
         .map((datum) => (

@@ -30,7 +30,7 @@ function About() {
                 <Card.Img variant="top" src={team} />
                 <Card.Body>
                   <Card.Title>
-                    <b>Team Wombat</b>
+                    <b>Team Wombats</b>
                   </Card.Title>
                 </Card.Body>
               </Card>

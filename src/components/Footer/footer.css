@@ -43,6 +43,7 @@
     
     .ct-footer-post a {
         color: #fff;
+        text-decoration: none;
     }
     
     .ct-footer-post a:hover {
