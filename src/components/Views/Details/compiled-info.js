@@ -53,11 +53,11 @@ const CompiledInfo = function (props) {
               {data && (
                 <>
                   <Card.Title>Show Info</Card.Title>
-                  <Card.Text>
-                    <b>Network:</b> {data.network.name}
-                    <Flag code={data.network.country.code} width="24px" />
-                    {data.network.country.code}
-                  </Card.Text>
+                    <Card.Text>
+                      <b>Network:</b> {data.network.name ? data.network.name : ""}
+                      <Flag code={data.network.country.code ? data.network.country.code : ""} width="24px" />
+                      {data.network.country.code ? data.network.country.code : ""}
+                    </Card.Text>
                   <Card.Text>
                     <b>Official site:</b>
                     <Card.Link href={data.officialSite}>
