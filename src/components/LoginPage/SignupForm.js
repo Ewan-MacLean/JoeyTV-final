@@ -1,12 +1,13 @@
-import React, {useState} from "react";
+import React, {Component, useState} from "react";
+import {
+    Container,
+    Form,
+    FormControl,
+    Button
+  } from "react-bootstrap";
 
-const SignupForm = () => {
-    // React States
-    const [errorMessages, setErrorMessages] = useState({});
-    const [isSubmitted, setIsSubmitted] = useState(false);
-
-    // Mock user database
-    const database = [
+// Mock user database
+const database = [
     {
         username: "user1",
         password: "pass1"
@@ -17,6 +18,89 @@ const SignupForm = () => {
     }
     ];
 
+class SignupForm extends Component{
+
+    constructor(props){
+        super(props);
+
+      this.state = {
+          user: '',
+          pass1: '',
+          pass2: ''
+      };
+    }
+
+    onChangeUser(event) {
+        this.setState({ user: event.target.value })
+    }
+
+    onChangePass1(event) {
+        this.setState({ pass1: event.target.value })
+    }
+
+    onChangePass2(event) {
+        this.setState({ pass2: event.target.value })
+    }
+
+    handleSubmit(event){
+        event.preventDefault();
+        console.log("Handling submit...");
+        console.log(this.state.user);
+        console.log(this.state.pass1);
+        console.log(this.state.pass2);
+        const userData = database.find((uname) => uname.username === this.state.user);
+
+        //Validation, only works as a mock at the moment. 
+        if (userData) {
+            console.log("User already exists.")
+        } 
+        else if (this.state.pass1 !== this.state.pass2){
+            console.log('Password does not match.')
+        }
+        else {
+            //Some code here to add user to database...
+        }
+    }
+
+    render() {
+        return(
+            <Container>
+                <h1>Sign Up</h1>
+                <Form className="login" onSubmit={this.handleSubmit.bind(this)}>
+                    <Form.Group className="mb-3" controlId="uname">
+                        <Form.Label>Username</Form.Label>
+                        <Form.Control onChange={this.onChangeUser.bind(this)} type="text" placeholder="Enter Username" />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="pass">
+                        <Form.Label>Password</Form.Label>
+                        <Form.Control onChange={this.onChangePass1.bind(this)} type="text" placeholder="Enter Password" />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="pass">
+                        <Form.Control onChange={this.onChangePass2.bind(this)} type="text" placeholder="Re-type Password" />
+                    </Form.Group>
+                    <Button variant="primary" type="submit">
+                        Sign Up
+                    </Button>
+                </Form>
+                <br/>
+            </Container>
+        );
+    }
+
+}
+
+    
+export default SignupForm;
+
+/*Old code:
+
+const SignupForm = () => {
+    // React States
+    const [errorMessages, setErrorMessages] = useState({});
+    const [isSubmitted, setIsSubmitted] = useState(false);
+
+    
+
     const handleSubmit = (event) => {
         //Prevent page reload
         event.preventDefault();
@@ -25,17 +109,7 @@ const SignupForm = () => {
         var {uname, pass1, pass2 } = document.forms["signup"];
         const userData = database.find((user) => user.username === uname.value);
 
-        if (userData) {
-            setErrorMessages({ name: "uname", message: "User already exists." });
-        } 
-        else if (pass1.value !== pass2.value){
-            setErrorMessages({ name: "pass2", message: "Please check that password matches." });
-        }
-        else {
-            //Some code here to add user to database...
-            database.push({uname, pass1});
-            setIsSubmitted(true);
-        }
+        
     };
 
     // Generate JSX code for error message
@@ -80,7 +154,7 @@ const SignupForm = () => {
     );
 }
 
-export default SignupForm;
+*/
 
 /* Cut Email functionality code:
 
