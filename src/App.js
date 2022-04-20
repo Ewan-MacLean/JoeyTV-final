@@ -32,6 +32,49 @@ function App() {
   }, []);
 
   function search(data) {
+    if (searchcolumns.includes("reviews")) {
+      const matchesIdsArray = [];
+      // fetch comments and translate into id
+      fetch("http://localhost:8888/userComments")
+        .then((response) => {
+          return response.json()
+        })
+        .then((allComments) => {
+
+
+          // iterate througth all comments 
+          for (let c of allComments) {
+            if (c.tags) {
+              for (let t of c.tags) {
+                if (t == query) {
+                  matchesIdsArray.push(c.showId)
+                }
+              }
+            }
+            if (c.review != "") {
+              let regex = new RegExp(query, "g")
+              if (c.review.match(regex)) {
+                matchesIdsArray.push(c.showId)
+              }
+            }
+          }
+          // Summary of maching IDs
+          return (matchesIdsArray.join(" "))
+
+        })
+        .then((matchesID) => {
+          // include id as criteria
+          if (!searchcolumns.includes("id")) {
+            searchcolumns.push("id")
+          }
+          let newQuery = matchesID;
+          setQuery(newQuery);         
+        })
+        // remove reviews from criteria
+        searchcolumns.splice(searchcolumns.indexOf("reviews"), 1)
+
+    }
+
     return data.filter((row) =>
       searchcolumns.some(
         (column) =>
@@ -51,7 +94,9 @@ function App() {
   // Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-  const columns = data[0] && Object.keys(data[0]);
+  // const columns = data[0] && Object.keys(data[0]);
+  // console.log(Object.keys(data[0]))
+  const columns = data[0] && ["name", "language", "genres", "summary", "reviews", "id"]
 
   return (
     <Container>
