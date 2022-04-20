@@ -18,9 +18,9 @@ const CompiledInfo = function (props) {
 
   return (
     // <Container>
-      <Card className="text-center mb-2 mt-3">
-        {data && (
-          <div className="row g-0">
+    <Card className="text-center mb-2 mt-3">
+      {data && (
+        <div className="row g-0">
           <div className="col-md-4">
             <Card.Title className="mb-3 mt-3">
               <h2>{data.name}</h2>
@@ -38,12 +38,12 @@ const CompiledInfo = function (props) {
               <b>Recommended ages:</b>
               {summaryData
                 ? summaryData.ages
-                    .sort((a, b) => a - b)
-                    .map((age) => (
-                      <Button variant="light" key={age}>
-                        {age}
-                      </Button>
-                    ))
+                  .sort((a, b) => a - b)
+                  .map((age) => (
+                    <Button variant="light" key={age}>
+                      {age}
+                    </Button>
+                  ))
                 : "Not available"}
             </Card.Text>
             <Card.Text style={{ margin: 20 }}>
@@ -57,11 +57,10 @@ const CompiledInfo = function (props) {
                 {data && (
                   <>
                     <Card.Title>Show Info</Card.Title>
-                      <Card.Text>
-                        <b>Network:</b> {data.network.name ? data.network.name : ""}
-                        <Flag code={data.network.country.code ? data.network.country.code : ""} width="24px" />
-                        {data.network.country.code ? data.network.country.code : ""}
-                      </Card.Text>
+                    <Card.Text>
+                      <b>Network:</b> {data.network.name ? data.network.name : ""}
+                      {data.network.country && (<><Flag code={data.network.country.code} width="24px" /> {data.network.country.code}</>)}
+                    </Card.Text>
                     <Card.Text>
                       <b>Official site:</b>
                       <Card.Link href={data.officialSite}>
@@ -110,10 +109,10 @@ const CompiledInfo = function (props) {
                 </Button>
               </Card.Text>
             </Card.Body>
-            </div>
           </div>
-        )}
-      </Card>
+        </div>
+      )}
+    </Card>
     // </Container>
   );
 };
