@@ -10,7 +10,9 @@ export const CheckBox = ({ columns, searchcolumns, setSearchColumns }) => {
       <Col>
         <Card>
           <Form>
-            <p className="contcheck">Search Properties</p>
+            <p className="contcheck">
+              <b>Search Properties</b>
+            </p>
             {columns &&
               columns.map((column) => (
                 <Form.Check.Label className="contcheck" key={column}>
