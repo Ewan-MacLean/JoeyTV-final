@@ -114,7 +114,8 @@ export const ReviewForm = (props) => {
           Form Reset
         </Button>
       </Form>
-      <ReviewList />
+      <ReviewList showId={showId} />
+      
     </Card>
   );
 };

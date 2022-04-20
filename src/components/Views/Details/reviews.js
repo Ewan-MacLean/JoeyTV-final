@@ -17,7 +17,7 @@ const Reviews = function (props) {
 
     return (
         <Card>
-            <Card.Header as="h2">Complete reviews</Card.Header>
+            <Card.Header as="h2">Users reviews</Card.Header>
             {empty? msg : ""}
             <SingleReview props={reviews} />
         </Card>

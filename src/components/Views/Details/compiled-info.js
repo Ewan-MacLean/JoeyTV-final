@@ -38,12 +38,12 @@ const CompiledInfo = function (props) {
               <b>Recommended ages:</b>
               {summaryData
                 ? summaryData.ages
-                    .sort((a, b) => a - b)
-                    .map((age) => (
-                      <Button variant="light" key={age}>
-                        {age}
-                      </Button>
-                    ))
+                  .sort((a, b) => a - b)
+                  .map((age) => (
+                    <Button variant="light" key={age}>
+                      {age}
+                    </Button>
+                  ))
                 : "Not available"}
             </Card.Text>
             <Card.Text style={{ margin: 20 }}>
@@ -58,9 +58,14 @@ const CompiledInfo = function (props) {
                   <>
                     <Card.Title>Show Info</Card.Title>
                     <Card.Text>
+<<<<<<< HEAD
                       <b>Network:</b> {data.network.name || data.network}
                       {/* <Flag code={data.network.country.code ? data.network.country.code : ""} width="24px" />
                         {data.network.country.code ? data.network.country.code : ""} */}
+=======
+                      <b>Network:</b> {data.network.name ? data.network.name : ""}
+                      {data.network.country && (<><Flag code={data.network.country.code} width="24px" /> {data.network.country.code}</>)}
+>>>>>>> dd4fd30f167795e403d48147c4fa32a159e063f1
                     </Card.Text>
                     <Card.Text>
                       <b>Official site:</b>

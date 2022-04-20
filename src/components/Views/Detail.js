@@ -1,5 +1,8 @@
 import "./Detail.css";
 import CompiledInfo from "./Details/compiled-info";
+import BasicInfo from "./Details/basic-info";
+import Reviews from "./Details/reviews";
+import CompleteTags from "./Details/complete-tags";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
@@ -107,8 +110,8 @@ function Detail() {
     <div>
       <CompiledInfo props={[publicData, rawReviews, computedData]} />
       {/* <BasicInfo props={[publicData, rawReviews, computedData, eps]} /> */}
-      {/* <Reviews props={[publicData, rawReviews, computedData]} /> */}
-      {/* <CompleteTags props={[publicData, rawReviews, computedData]} /> */}
+      <Reviews props={[publicData, rawReviews, computedData]} />
+      <CompleteTags props={[publicData, rawReviews, computedData]} />
     </div>
   );
 }
