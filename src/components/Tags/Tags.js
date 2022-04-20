@@ -16,7 +16,6 @@ export const Tags = ({ tags, setTags }) => {
   }, []);
 
   const handleTags = (e) => {
-    console.log(e.target.value);
     if (e.target.checked === true) {
       setTags(tags.concat([e.target.value]));
     } else {

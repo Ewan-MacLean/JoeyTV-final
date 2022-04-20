@@ -9,10 +9,12 @@ import { useParams } from "react-router-dom";
 
 export const ReviewForm = (props) => {
   let { showId } = useParams();
+  // const [userId, setUserId] = useState([]);
   const [review, setReview] = useState("");
   const [rating, setRating] = useState(0);
   const [ages, setAges] = useState([]);
   const [tags, setTags] = useState([]);
+  const [data, setData] = useState([]);
 
   const handleSubmit = (e) => {
     //reset for data
@@ -40,8 +42,9 @@ export const ReviewForm = (props) => {
       body: JSON.stringify(userComments),
     })
       .then((response) => response.json())
-      .then((data) => console.log(data));
+      .then((data) => setData(data));
   };
+  const messages = data.errors;
 
   return (
     <Card className="text-center mt-3">
@@ -84,10 +87,22 @@ export const ReviewForm = (props) => {
             rows={4}
             value={review}
             onChange={(e) => setReview(e.target.value)}
-            required
+            // required
           />
         </Form.Group>
         <Tags tags={tags} setTags={setTags} />
+
+        <Card>
+          {messages &&
+            messages.map((message, index) => (
+              <Card.Body key={message.index}>
+                <Card.Header className="text-danger bg-dark">
+                  Error Message: {message.msg}
+                </Card.Header>
+              </Card.Body>
+            ))}
+        </Card>
+
         <Button type="submit">Submit Review</Button>
         <Button
           style={{ margin: 10 }}

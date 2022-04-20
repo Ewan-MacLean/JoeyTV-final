@@ -9,7 +9,8 @@ const ReviewList = (props) => {
       .then((response) => {
         return response.json();
       })
-      .then((usercomments) => setUsercomments(usercomments));
+      .then((usercomments) => setUsercomments(usercomments))
+      .catch((err) => console.log(err));
   }, []);
 
   return (

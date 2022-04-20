@@ -18,33 +18,29 @@ const ShowList = function ({
   return (
     <Stack>
       <Row>
-        <Col>
-          <Slider />
-        </Col>
+        <Slider />
       </Row>
       <Row>
-        <Col>
-          {showData
-            .sort((a, b) => (a.rating.average < b.rating.average ? 1 : -1)) //TBD Fix the null cases
-            .map((x) => (
-              <div key={x.id}>
-                <ShowCard
-                  name={x.name}
-                  id={x.id}
-                  rating={x.rating.average}
-                  image={x.image.medium}
-                  summary={x.summary}
-                />
-              </div>
-            ))}
-        </Col>
-        <Col>
-          <CheckBox
-            columns={columns}
-            searchcolumns={searchcolumns}
-            setSearchColumns={setSearchColumns}
-          />
-        </Col>
+        <CheckBox
+          columns={columns}
+          searchcolumns={searchcolumns}
+          setSearchColumns={setSearchColumns}
+        />
+      </Row>
+      <Row>
+        {showData
+          .sort((a, b) => (a.rating.average < b.rating.average ? 1 : -1)) //TBD Fix the null cases
+          .map((x) => (
+            <div key={x.id}>
+              <ShowCard
+                name={x.name}
+                id={x.id}
+                rating={x.rating.average}
+                image={x.image.medium}
+                summary={x.summary}
+              />
+            </div>
+          ))}
       </Row>
     </Stack>
   );

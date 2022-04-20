@@ -1,24 +1,33 @@
+const { request, response } = require("express");
+const { validationResult } = require("express-validator");
 const UserComments = require("../schema/userCommentsSchema");
 
-const getUserComments = async (req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
+const getUserComments = async (request, response) => {
+  response.setHeader("Access-Control-Allow-Origin", "*");
   try {
     const userComments = await UserComments.find();
-    // console.log(userComments);
-    res.json(userComments);
+    // console.log(userComments)
+    response.json(userComments);
   } catch (error) {
-    res.status(404).json({ message: error.message });
+    response.status(404).json({ message: error.message });
   }
 };
 
-const postUserComments = async (req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
+const postUserComments = async (request, response) => {
   try {
-    const userComments = await UserComments.create(req.body);
-    res.json(userComments);
-    console.log(req.body);
+    response.setHeader("Access-Control-Allow-Origin", "*");
+    const errors = validationResult(request);
+    if (!errors.isEmpty()) {
+      return response.status(400).json({ errors: errors.array() });
+    }
+    // response.status(200).json({
+    //   success: "ok",
+    // });
+    const userComments = await UserComments.create(request.body);
+    response.json(userComments);
+    console.log(request.body);
   } catch (error) {
-    res.status(409).json({ message: error.message });
+    response.status(400).json({ message: error.message });
   }
 };
 

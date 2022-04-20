@@ -1,11 +1,13 @@
 /* The container */
 .contcheck {
-  display: block;
+  display: flexbox;
   position: relative;
-  padding-left: 35px;
-  margin-bottom: 12px;
+  padding-left: 20px;
+  padding-right: 5px;
+  margin-bottom: 5px;
+  margin-left: 4px;
   cursor: pointer;
-  font-size: 22px;
+  font-size: 15px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -26,8 +28,8 @@
   position: absolute;
   top: 0;
   left: 0;
-  height: 25px;
-  width: 25px;
+  height: 10px;
+  width: 10px;
   background-color: rgb(141, 79, 79);
 }
 

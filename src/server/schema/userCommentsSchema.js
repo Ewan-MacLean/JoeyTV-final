@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const userCommentsSchema = new mongoose.Schema({
   showId: Number,
-  userId: Number,
+  // userId: Number,
   movieTitle: String,
   review: String,
   rating: Number,

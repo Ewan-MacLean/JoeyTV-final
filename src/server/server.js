@@ -1,10 +1,10 @@
 const express = require("express");
 const connectToDatabase = require("./db");
 const app = express();
-const multer = require("multer");
-const upload = multer();
+// const multer = require("multer");
+// const upload = multer();
 require("dotenv").config();
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
 const tagsRoutes = require("./routes/tagsRoutes");
 const moviesRoutes = require("./routes/moviesRoutes");
 const userCommentsRoutes = require("./routes/userCommentsRoutes");
